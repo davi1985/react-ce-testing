@@ -13,6 +13,16 @@
 .users ul li {
   padding: 0.8rem;
   background: #323232;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.users ul li button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 li + li {

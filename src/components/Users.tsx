@@ -1,24 +1,24 @@
 import { useState } from "react";
 import "./styles.css";
 
+import trashIcon from "./assets/trash.png";
+
 type UsersProps = {
   users: string[];
 };
-
-// const users = [
-//   { id: 1, name: "Davi" },
-//   { id: 2, name: "Jhon" },
-//   { id: 3, name: "Steve" },
-// ];
 
 export const Users = ({ users }: UsersProps) => {
   const [newUser, setNewUser] = useState("");
   const [list, setList] = useState(users);
 
   function addNewUser() {
-    setTimeout(() => {
-      setList((state) => [...state, newUser]);
-    });
+    if (!newUser) return;
+
+    setList((state) => [...state, newUser]);
+  }
+
+  function removeUser(user: string) {
+    setList((state) => state.filter((item) => user !== item));
   }
 
   return (
@@ -35,7 +35,12 @@ export const Users = ({ users }: UsersProps) => {
 
       <ul>
         {list.map((user, index) => (
-          <li key={index}>{user}</li>
+          <li key={index}>
+            {user}
+            <button onClick={() => removeUser(user)}>
+              <img src={trashIcon} alt="Trash" />
+            </button>
+          </li>
         ))}
       </ul>
     </div>

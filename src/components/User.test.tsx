@@ -10,7 +10,7 @@ describe("Users", () => {
     render(<Users users={usersMocked} />);
 
     const input = screen.getByRole("textbox");
-    const addButton = screen.getByRole("button");
+    const addButton = screen.getByRole("button", { name: "Add" });
     const list = screen.getByRole("list");
     const users = screen.getAllByRole("listitem");
 
@@ -20,7 +20,7 @@ describe("Users", () => {
     expect(users.length).toBe(3);
   });
 
-  it("should be possible add users in list", async () => {
+  it("should be possible add user from list", async () => {
     render(<Users users={[]} />);
 
     const input = screen.getByRole("textbox");
@@ -32,5 +32,33 @@ describe("Users", () => {
     await waitFor(() => {
       expect(screen.getByText("Jhon Doe")).toBeInTheDocument();
     });
+  });
+
+  it("should be possible remove user from list", async () => {
+    render(<Users users={["Davi"]} />);
+
+    const removeItemButton = screen.getByRole("button", {
+      name: /trash/i,
+    });
+
+    userEvent.click(removeItemButton);
+
+    await waitFor(() => {
+      expect(screen.queryByText("Davi")).not.toBeInTheDocument();
+    });
+  });
+
+  it("should not to render nothing if input is empty", () => {
+    render(<Users users={[]} />);
+
+    const input = screen.getByRole("textbox");
+    const addButton = screen.getByRole("button", { name: "Add" });
+
+    userEvent.type(input, "");
+    userEvent.click(addButton);
+
+    const users = screen.getByRole("list");
+
+    expect(users).toBeEmpty();
   });
 });
