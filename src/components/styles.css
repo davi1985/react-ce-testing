@@ -1,7 +1,7 @@
 .users {
   margin-top: 1rem;
   padding: 2rem 3rem;
-  background: #212121;
+  background: #202227;
   box-shadow: 2px 4px 20px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -12,10 +12,14 @@
 
 .users ul li {
   padding: 0.8rem;
-  background: #323232;
+  border-bottom: 1px solid #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+li:hover {
+  filter: brightness(0.9);
 }
 
 .users ul li button {
@@ -26,7 +30,7 @@
 }
 
 li + li {
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 input {
@@ -46,7 +50,7 @@ input {
   border-bottom-right-radius: 2rem;
   border: none;
   color: #f2f2f2;
-  background: palevioletred;
+  background: #30b22c;
   text-transform: uppercase;
   cursor: pointer;
   transition: filter 0.3s;

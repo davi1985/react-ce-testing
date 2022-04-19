@@ -2,7 +2,7 @@ import "./App.css";
 import { Users } from "./components/Users";
 
 export default function App() {
-  const users = ["Davi", "Jhon"];
+  const users = ["Davi Silva", "Steve Johns"];
 
   return (
     <div className="App">
