@@ -1,0 +1,48 @@
+.users {
+  margin-top: 1rem;
+  padding: 2rem 3rem;
+  background: #212121;
+  box-shadow: 2px 4px 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+.users ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.users ul li {
+  padding: 0.8rem;
+  background: #323232;
+}
+
+li + li {
+  margin-top: 0.8rem;
+}
+
+input {
+  padding: 1rem;
+  padding-left: 1.5rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.add button {
+  margin-left: 2px;
+  padding: 1rem 1.5rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border: none;
+  color: #f2f2f2;
+  background: palevioletred;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 0.3s;
+  font-size: 1rem;
+}
+
+button:hover {
+  filter: brightness(0.7);
+}
